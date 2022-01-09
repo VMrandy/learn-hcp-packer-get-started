@@ -8,7 +8,7 @@ packer {
 }
 
 data "amazon-ami" "ubuntu-xenial-east" {
-  region = "us-east-2"
+  region = "us-east-1"
   filters = {
     name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
     root-device-type    = "ebs"
