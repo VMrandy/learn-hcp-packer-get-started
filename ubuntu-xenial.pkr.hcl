@@ -8,7 +8,7 @@ packer {
 }
 
 variable "version" {
-  type =  string
+  type    = string
   default = "3.4.0"
 }
 
