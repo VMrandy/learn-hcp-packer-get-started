@@ -19,7 +19,7 @@ data "amazon-ami" "ubuntu-xenial-east" {
 }
 
 source "amazon-ebs" "basic-example-east" {
-  region = "us-east-2"
+  region         = "us-east-2"
   source_ami     = data.amazon-ami.ubuntu-xenial-east.id
   instance_type  = "t2.small"
   ssh_username   = "ubuntu"
@@ -39,7 +39,7 @@ data "amazon-ami" "ubuntu-xenial-west" {
 }
 
 source "amazon-ebs" "basic-example-west" {
-  region = "us-west-2"
+  region         = "us-west-2"
   source_ami     = data.amazon-ami.ubuntu-xenial-west.id
   instance_type  = "t2.small"
   ssh_username   = "ubuntu"
