@@ -7,6 +7,11 @@ packer {
   }
 }
 
+variable "version" {
+  type =  string
+  default = "3.4.0"
+}
+
 data "amazon-ami" "ubuntu-xenial-east" {
   region = "us-east-1"
   filters = {
@@ -24,7 +29,7 @@ source "amazon-ebs" "basic-example-east" {
   instance_type  = "t2.small"
   ssh_username   = "ubuntu"
   ssh_agent_auth = false
-  ami_name       = "packer_AWS_{{timestamp}}"
+  ami_name       = "packer_AWS_{{timestamp}}_v${var.version}"
 }
 
 data "amazon-ami" "ubuntu-xenial-west" {
@@ -44,7 +49,7 @@ source "amazon-ebs" "basic-example-west" {
   instance_type  = "t2.small"
   ssh_username   = "ubuntu"
   ssh_agent_auth = false
-  ami_name       = "packer_AWS_{{timestamp}}"
+  ami_name       = "packer_AWS_{{timestamp}}_v${var.version}"
 }
 
 build {
