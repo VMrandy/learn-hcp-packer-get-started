@@ -16,7 +16,7 @@ data "hcp-packer-image" "ubuntu-east" {
   bucket_name    = "learn-packer-ubuntu"
   iteration_id   = data.hcp-packer-iteration.ubuntu.id
   cloud_provider = "aws"
-  region         = "us-east-2"
+  region         = "us-east-1"
 }
 
 data "hcp-packer-image" "ubuntu-west" {
@@ -29,7 +29,7 @@ data "hcp-packer-image" "ubuntu-west" {
 source "amazon-ebs" "application-east" {
   ami_name = "packer_AWS_{{timestamp}}"
 
-  region         = "us-east-2"
+  region         = "us-east-1"
   source_ami     = data.hcp-packer-image.ubuntu-east.id
   instance_type  = "t2.small"
   ssh_username   = "ubuntu"
