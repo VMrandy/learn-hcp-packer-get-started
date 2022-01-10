@@ -9,7 +9,7 @@ data "hcp_packer_iteration" "ubuntu" {
   channel     = "production"
 }
 
-data "hcp_packer_image" "ubuntu_us_east_2" {
+data "hcp_packer_image" "ubuntu_us_east_1" {
   bucket_name    = "learn-packer-ubuntu"
   cloud_provider = "aws"
   iteration_id   = data.hcp_packer_iteration.ubuntu.ulid
